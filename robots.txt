@@ -1,0 +1,36 @@
+# robots.txt — Netaudience
+# Agence SEO & SEA dédiée au secteur financier
+# https://www.netaudience.fr
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Allow all major search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap
+Sitemap: https://www.netaudience.fr/sitemap.xml
+
+# Crawl-delay (optional, comment out if you want faster indexing)
+# Crawl-delay: 1
