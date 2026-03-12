@@ -1,10 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" role="img" aria-label="Netaudience">
-  <!-- Icon: two nested squares (outer blue, inner white/blue) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" role="img" aria-label="netaudience">
+  <!-- Icon: two nested squares -->
   <rect x="0" y="4" width="36" height="36" rx="7" fill="#2E86DE"/>
   <rect x="7" y="11" width="22" height="22" rx="4" fill="#1B3A5C"/>
   <rect x="13" y="17" width="10" height="10" rx="2" fill="white" opacity="0.9"/>
 
-  <!-- Wordmark: "net" in blue, "audience" in white (for dark bg use) -->
-  <text x="48" y="29" font-family="'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="20" letter-spacing="-0.4" fill="#2E86DE">net</text>
-  <text x="86" y="29" font-family="'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="20" letter-spacing="-0.4" fill="#C9A96E">audience</text>
+  <!-- Wordmark: single text element with tspan for color -->
+  <text x="48" y="29" font-family="'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="20" letter-spacing="-0.4">
+    <tspan fill="#2E86DE">net</tspan><tspan fill="#C9A96E">audience</tspan>
+  </text>
 </svg>
