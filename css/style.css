@@ -240,6 +240,18 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.3rem); }
   flex-shrink: 0;
 }
 
+.logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  transition: opacity var(--transition);
+}
+
+.logo:hover .logo-img {
+  opacity: 0.85;
+}
+
+/* Fallback — conservé pour compatibilité */
 .logo-mark {
   width: 36px;
   height: 36px;
