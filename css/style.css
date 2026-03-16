@@ -843,6 +843,83 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.3rem); }
 .logo-placeholder:hover { opacity: 1; }
 
 /* ============================================================
+   CLIENTS SECTION (Social Proof)
+   ============================================================ */
+.clients-section {
+  padding: var(--section-py) 0;
+  background: var(--color-white);
+}
+
+.clients-logos {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(24px, 4vw, 48px);
+  flex-wrap: wrap;
+}
+
+.client-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 32px 40px;
+  background: var(--color-blue-light);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(27,58,92,.08);
+  transition: all var(--transition);
+  min-width: 220px;
+  flex: 0 1 280px;
+}
+
+.client-logo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(201,169,110,.3);
+}
+
+.client-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  margin-bottom: 16px;
+}
+
+.client-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-brand);
+  letter-spacing: -0.02em;
+}
+
+.client-logo-text strong {
+  font-weight: 800;
+}
+
+.client-name {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.client-desc {
+  font-size: 0.82rem;
+  color: var(--color-grey);
+}
+
+@media (max-width: 600px) {
+  .client-logo-item {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}
+
+/* ============================================================
    SECTORS
    ============================================================ */
 .sector-card {
