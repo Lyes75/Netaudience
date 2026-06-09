@@ -232,8 +232,7 @@
   /* ----------------------------------------------------------
    * CONFIGURATION — remplacer par l'URL réelle du webhook n8n
    * ---------------------------------------------------------- */
-  var WEBHOOK_URL = 'REMPLACER_PAR_VOTRE_WEBHOOK_URL';
-  // ex: 'https://n8n.votre-domaine.fr/webhook/netaudience-lead'
+  var WEBHOOK_URL = 'https://netaudience.app.n8n.cloud/webhook-test/netaudience-lead';
 
   var form = document.querySelector('.contact-form form');
   if (!form) return;
