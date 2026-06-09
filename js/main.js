@@ -257,8 +257,11 @@
   }
 
   function getGaSessionId() {
-    // Cible le premier cookie _ga_<STREAM_ID> trouvé dans document.cookie
-    var m = document.cookie.match(/_ga_[A-Z0-9]+=GS\d+\.\d+\.(\d+)/);
+    // Cible le premier cookie _ga_<STREAM_ID> trouvé dans document.cookie.
+    // Ancien format : GS1.1.<session_id>.<…>   (session_id = chiffres bruts)
+    // Nouveau format : GS2.1.s<session_id>$o…  (session_id préfixé par 's')
+    // Le 's?' couvre les deux formats sans rupture.
+    var m = document.cookie.match(/_ga_[A-Z0-9]+=GS\d+\.\d+\.s?(\d+)/);
     return m ? m[1] : null;
   }
 
