@@ -228,71 +228,136 @@
 // 8. CONTACT FORM HANDLING
 // ============================================================
 (function initContactForm() {
-  const form = document.querySelector('.contact-form form');
+
+  /* ----------------------------------------------------------
+   * CONFIGURATION — remplacer par l'URL réelle du webhook n8n
+   * ---------------------------------------------------------- */
+  var WEBHOOK_URL = 'REMPLACER_PAR_VOTRE_WEBHOOK_URL';
+  // ex: 'https://n8n.votre-domaine.fr/webhook/netaudience-lead'
+
+  var form = document.querySelector('.contact-form form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  /* ----------------------------------------------------------
+   * Helpers cookies GA4 — sans dépendance à gtag()
+   *
+   * _ga            → GA1.X.<client_id>   (ex: GA1.2.123456.7890)
+   * _ga_STREAM_ID  → GS1.1.<session_id>… (ex: GS1.1.1700000000.1…)
+   * ---------------------------------------------------------- */
+  function getCookieRaw(name) {
+    var rx = new RegExp('(?:^|; )' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '=([^;]*)');
+    var m = document.cookie.match(rx);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
+  function getGaClientId() {
+    var raw = getCookieRaw('_ga');
+    if (!raw) return null;
+    var m = raw.match(/^GA\d+\.\d+\.(.+)$/);
+    return m ? m[1] : null;
+  }
+
+  function getGaSessionId() {
+    // Cible le premier cookie _ga_<STREAM_ID> trouvé dans document.cookie
+    var m = document.cookie.match(/_ga_[A-Z0-9]+=GS\d+\.\d+\.(\d+)/);
+    return m ? m[1] : null;
+  }
+
+  /* ----------------------------------------------------------
+   * Élément de feedback créé à la volée sous le bouton submit
+   * ---------------------------------------------------------- */
+  var submitBtn = form.querySelector('button[type="submit"]');
+  var feedback = document.createElement('p');
+  feedback.setAttribute('role', 'status');
+  feedback.setAttribute('aria-live', 'polite');
+  feedback.style.cssText = 'margin-top:12px;font-size:.875rem;text-align:center;min-height:1.25em;';
+  submitBtn.insertAdjacentElement('afterend', feedback);
+
+  function setFeedback(msg, color) {
+    feedback.textContent = msg;
+    feedback.style.color = color || '';
+  }
+
+  /* ----------------------------------------------------------
+   * Soumission
+   * ---------------------------------------------------------- */
+  form.addEventListener('submit', function onSubmit(e) {
     e.preventDefault();
 
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
+    // Validation HTML5 native (form a l'attribut novalidate → on déclenche manuellement)
+    if (!form.reportValidity()) return;
 
-    // Simulate sending
-    btn.textContent = 'Envoi en cours...';
-    btn.disabled = true;
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours…';
+    setFeedback('', '');
 
-    setTimeout(() => {
-      // Success state
-      const success = document.createElement('div');
+    // Collecte tous les champs via FormData
+    var fields = {};
+    new FormData(form).forEach(function(val, key) { fields[key] = val; });
+
+    var payload = Object.assign(fields, {
+      ga_client_id:  getGaClientId(),   // null si consentement refusé → envoyé quand même
+      ga_session_id: getGaSessionId()   // null si cookie absent
+    });
+
+    fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+
+      // Succès : remplace le formulaire par le message de confirmation
+      form.reset();
+      var success = document.createElement('div');
       success.className = 'form-success';
-      success.innerHTML = `
-        <div style="
-          text-align: center;
-          padding: 48px 32px;
-          background: var(--color-blue-light);
-          border-radius: var(--radius-lg);
-          border: 1px solid rgba(46,134,222,.2);
-        ">
-          <div style="
-            width: 64px; height: 64px;
-            background: var(--color-blue);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-          ">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
-          </div>
-          <h3 style="margin-bottom: 12px; color: var(--color-brand);">Message envoyé !</h3>
-          <p style="color: var(--color-grey);">
-            Merci pour votre demande. Notre équipe vous répondra dans les 24 heures.
-          </p>
-        </div>
-      `;
+      success.innerHTML = [
+        '<div style="',
+          'text-align:center;padding:48px 32px;',
+          'background:var(--color-blue-light);',
+          'border-radius:var(--radius-lg);',
+          'border:1px solid rgba(46,134,222,.2);',
+        '">',
+          '<div style="',
+            'width:64px;height:64px;background:var(--color-blue);border-radius:50%;',
+            'display:flex;align-items:center;justify-content:center;margin:0 auto 20px;',
+          '">',
+            '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">',
+              '<path d="M20 6L9 17l-5-5"/>',
+            '</svg>',
+          '</div>',
+          '<h3 style="margin-bottom:12px;color:var(--color-brand);">Message envoyé !</h3>',
+          '<p style="color:var(--color-grey);">',
+            'Merci pour votre demande. Notre équipe vous répondra dans les 24 heures.',
+          '</p>',
+        '</div>'
+      ].join('');
       form.replaceWith(success);
-    }, 1500);
-  });
-
-  // Real-time validation feedback
-  const requiredFields = form.querySelectorAll('[required]');
-  requiredFields.forEach(field => {
-    field.addEventListener('blur', () => {
-      if (!field.value.trim()) {
-        field.style.borderColor = '#e74c3c';
-      } else {
-        field.style.borderColor = '';
-      }
-    });
-
-    field.addEventListener('input', () => {
-      if (field.value.trim()) {
-        field.style.borderColor = '';
-      }
+    })
+    .catch(function() {
+      setFeedback(
+        'Une erreur est survenue. Veuillez réessayer ou écrire à contact@netaudience.fr',
+        '#e74c3c'
+      );
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
     });
   });
+
+  /* ----------------------------------------------------------
+   * Feedback temps-réel sur les champs requis
+   * ---------------------------------------------------------- */
+  form.querySelectorAll('[required]').forEach(function(field) {
+    field.addEventListener('blur', function() {
+      field.style.borderColor = field.value.trim() ? '' : '#e74c3c';
+    });
+    field.addEventListener('input', function() {
+      if (field.value.trim()) field.style.borderColor = '';
+    });
+  });
+
 })();
 
 // ============================================================

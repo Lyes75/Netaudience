@@ -1,0 +1,145 @@
+{
+  "name": "Netaudience — B · Validation → GA4",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "minutes", "minutesInterval": 2 }]
+        }
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000001",
+      "name": "Schedule — Toutes les 2 min",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "documentId": {
+          "__rl": true,
+          "value": "VOTRE_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "filters": {},
+        "options": {}
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000002",
+      "name": "Google Sheets — Lire toutes les lignes",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- Filtrage + préparation payload Measurement Protocol ---\n// Règles :\n//   1. statut === 'client_signe'\n//   2. envoye est vide (déduplication)\n//   3. ga_client_id présent (consentement donné)\n\nconst items = $input.all();\n\n// Ajoute le numéro de ligne (ligne 1 = header, données à partir de 2)\nconst withRowNumber = items.map((item, idx) => ({\n  ...item,\n  json: { ...item.json, _rowNumber: idx + 2 }\n}));\n\nconst toProcess = withRowNumber.filter(item => {\n  const d = item.json;\n  return (\n    d.statut === 'client_signe' &&\n    (!d.envoye || String(d.envoye).trim() === '') &&\n    d.ga_client_id && String(d.ga_client_id).trim() !== ''\n  );\n});\n\nif (toProcess.length === 0) return [];\n\n// Construit le payload MP pour chaque lead (SANS PII)\nreturn toProcess.map(item => ({\n  json: {\n    _rowNumber:  item.json._rowNumber,\n    client_id:   item.json.ga_client_id,\n    session_id:  item.json.ga_session_id || '',\n    value:       parseFloat(item.json.valeur) || 0,\n    // Payload complet Measurement Protocol\n    mp_payload: {\n      client_id: item.json.ga_client_id,\n      events: [{\n        name: 'contrat_signe',\n        params: {\n          session_id:          item.json.ga_session_id || '',\n          value:               parseFloat(item.json.valeur) || 0,\n          currency:            'EUR',\n          engagement_time_msec: 1\n        }\n      }]\n    }\n  }\n}));"
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000003",
+      "name": "Code — Filtrer et préparer MP",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://region1.google-analytics.com/mp/collect",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "measurement_id", "value": "G-ELXLY0ZK0H" },
+            { "name": "api_secret",     "value": "={{ $env.GA4_API_SECRET }}" }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.mp_payload) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true,
+              "fullResponse": false
+            }
+          }
+        }
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000004",
+      "name": "HTTP — Measurement Protocol GA4",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "VOTRE_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "envoye":     "oui",
+            "date_envoi": "={{ new Date().toISOString() }}"
+          }
+        },
+        "where": {
+          "values": [
+            {
+              "lookupColumn": "row_number",
+              "lookupValue":  "={{ $('Code — Filtrer et préparer MP').item.json._rowNumber }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000005",
+      "name": "Google Sheets — Marquer envoye=oui",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1120, 300]
+    }
+  ],
+  "connections": {
+    "Schedule — Toutes les 2 min": {
+      "main": [
+        [{ "node": "Google Sheets — Lire toutes les lignes", "type": "main", "index": 0 }]
+      ]
+    },
+    "Google Sheets — Lire toutes les lignes": {
+      "main": [
+        [{ "node": "Code — Filtrer et préparer MP", "type": "main", "index": 0 }]
+      ]
+    },
+    "Code — Filtrer et préparer MP": {
+      "main": [
+        [{ "node": "HTTP — Measurement Protocol GA4", "type": "main", "index": 0 }]
+      ]
+    },
+    "HTTP — Measurement Protocol GA4": {
+      "main": [
+        [{ "node": "Google Sheets — Marquer envoye=oui", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "id": "netaudience-workflow-b"
+}

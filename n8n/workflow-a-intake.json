@@ -1,0 +1,87 @@
+{
+  "name": "Netaudience — A · Lead Intake",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "netaudience-lead",
+        "responseMode": "onReceived",
+        "responseData": "noData",
+        "options": {
+          "allowedOrigins": "https://www.netaudience.fr"
+        }
+      },
+      "id": "a1b2c3d4-0001-0001-0001-000000000001",
+      "name": "Webhook — Réception lead",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "netaudience-lead-intake"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalise le body (n8n peut l'exposer sous .body ou à la racine)\nconst body = $input.first().json.body ?? $input.first().json;\n\nreturn [{\n  json: {\n    ts:            new Date().toISOString(),\n    prenom:        String(body.prenom        ?? ''),\n    nom:           String(body.nom           ?? ''),\n    email:         String(body.email         ?? ''),\n    telephone:     String(body.telephone     ?? ''),\n    societe:       String(body.societe       ?? ''),\n    secteur:       String(body.secteur       ?? ''),\n    besoin:        String(body.besoin        ?? ''),\n    message:       String(body.message       ?? ''),\n    ga_client_id:  body.ga_client_id  != null ? String(body.ga_client_id)  : '',\n    ga_session_id: body.ga_session_id != null ? String(body.ga_session_id) : '',\n    statut:        'nouveau',\n    valeur:        '',\n    envoye:        ''\n  }\n}];"
+      },
+      "id": "a1b2c3d4-0001-0001-0001-000000000002",
+      "name": "Code — Préparer ligne",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "VOTRE_GOOGLE_SHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ts":            "={{ $json.ts }}",
+            "prenom":        "={{ $json.prenom }}",
+            "nom":           "={{ $json.nom }}",
+            "email":         "={{ $json.email }}",
+            "telephone":     "={{ $json.telephone }}",
+            "societe":       "={{ $json.societe }}",
+            "secteur":       "={{ $json.secteur }}",
+            "besoin":        "={{ $json.besoin }}",
+            "message":       "={{ $json.message }}",
+            "ga_client_id":  "={{ $json.ga_client_id }}",
+            "ga_session_id": "={{ $json.ga_session_id }}",
+            "statut":        "={{ $json.statut }}",
+            "valeur":        "={{ $json.valeur }}",
+            "envoye":        "={{ $json.envoye }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0001-0001-0001-000000000003",
+      "name": "Google Sheets — Append Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Webhook — Réception lead": {
+      "main": [
+        [{ "node": "Code — Préparer ligne", "type": "main", "index": 0 }]
+      ]
+    },
+    "Code — Préparer ligne": {
+      "main": [
+        [{ "node": "Google Sheets — Append Row", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "id": "netaudience-workflow-a"
+}
