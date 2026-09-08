@@ -271,12 +271,12 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.3rem); }
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.15rem;
-  color: white;
+  color: var(--color-blue);
   letter-spacing: -0.02em;
 }
 
 .logo-text span {
-  color: var(--color-gold);
+  color: white;
 }
 
 /* Main Nav */
