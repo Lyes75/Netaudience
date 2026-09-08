@@ -5,7 +5,7 @@
   <!-- Accueil -->
   <url>
     <loc>https://www.netaudience.fr/</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,7 +13,7 @@
   <!-- L'agence -->
   <url>
     <loc>https://www.netaudience.fr/agence.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,23 +21,23 @@
   <!-- Expertises Hub -->
   <url>
     <loc>https://www.netaudience.fr/expertises.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- SEO Finance -->
+  <!-- SEO -->
   <url>
-    <loc>https://www.netaudience.fr/expertises/seo-finance.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.netaudience.fr/expertises/seo.html</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- SEA Finance -->
+  <!-- SEA -->
   <url>
-    <loc>https://www.netaudience.fr/expertises/sea-finance.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.netaudience.fr/expertises/sea.html</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -45,15 +45,15 @@
   <!-- Analytics -->
   <url>
     <loc>https://www.netaudience.fr/expertises/analytics.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Content Marketing -->
+  <!-- GEO -->
   <url>
-    <loc>https://www.netaudience.fr/expertises/content-marketing.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <loc>https://www.netaudience.fr/expertises/geo.html</loc>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -61,7 +61,7 @@
   <!-- Blog -->
   <url>
     <loc>https://www.netaudience.fr/blog.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -69,7 +69,7 @@
   <!-- Contact -->
   <url>
     <loc>https://www.netaudience.fr/contact.html</loc>
-    <lastmod>2025-01-15</lastmod>
+    <lastmod>2025-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>

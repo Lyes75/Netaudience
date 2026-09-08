@@ -1,5 +1,5 @@
 # robots.txt — Netaudience
-# Agence SEO & SEA dédiée au secteur financier
+# Agence SEO & GEO pour les secteurs YMYL
 # https://www.netaudience.fr
 
 User-agent: *
