@@ -237,12 +237,12 @@
 }
 
 /* ---- Blog image gradients ---- */
-.blog-img-1 { background: linear-gradient(135deg, #1a1a2e 0%, #6366F1 100%); }
-.blog-img-2 { background: linear-gradient(135deg, #0f0b1e 0%, #1a1a2e 100%); }
-.blog-img-3 { background: linear-gradient(135deg, #6366F1 0%, #1a1a2e 100%); }
-.blog-img-4 { background: linear-gradient(135deg, #1a1a2e 0%, #0f0b1e 50%, #7C3AED 100%); }
-.blog-img-5 { background: linear-gradient(135deg, #0a0816 0%, #6366F1 100%); }
-.blog-img-6 { background: linear-gradient(135deg, #1a1a2e 30%, #7C3AED 100%); }
+.blog-img-1 { background: linear-gradient(135deg, #1c2233 0%, #0066FF 100%); }
+.blog-img-2 { background: linear-gradient(135deg, #0d1424 0%, #1c2233 100%); }
+.blog-img-3 { background: linear-gradient(135deg, #0066FF 0%, #1c2233 100%); }
+.blog-img-4 { background: linear-gradient(135deg, #1c2233 0%, #0d1424 50%, #38A1F3 100%); }
+.blog-img-5 { background: linear-gradient(135deg, #080e1c 0%, #0066FF 100%); }
+.blog-img-6 { background: linear-gradient(135deg, #1c2233 30%, #38A1F3 100%); }
 
 /* ---- Glow effects ---- */
 .glow-blue {
