@@ -17,7 +17,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css"></head>
 <body>
@@ -61,31 +61,29 @@
 
 <main>
 
-<section class="page-hero" aria-labelledby="blog-title">
-  <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
-  <div class="bg-grid" aria-hidden="true"></div>
+<section class="hero hero--short" aria-labelledby="blog-title">
   <div class="container">
     <nav class="breadcrumb" aria-label="Fil d'Ariane">
       <a href="index.html">Accueil</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
       <span>Blog</span>
     </nav>
-    <div class="hero-eyebrow">Le blog Netaudience</div>
-    <h1 id="blog-title">SEO & GEO :<br><span class="text-gold">les insights qui comptent</span></h1>
-    <p>Analyses, guides et décryptages sur le SEO, le GEO et la visibilité IA pour les secteurs à enjeux. Rédigé par des experts, pour des experts.</p>
+    <span class="hero-eyebrow">Le blog Netaudience</span>
+    <h1 id="blog-title">SEO & GEO : les insights qui comptent</h1>
+    <p class="hero-subtitle">Analyses, guides et décryptages sur le SEO, le GEO et la visibilité IA pour les secteurs à enjeux. Rédigé par des experts, pour des experts.</p>
   </div>
 </section>
 
 <!-- FILTRES CATÉGORIES -->
 <section class="section" style="padding-bottom:0;" aria-label="Filtres d'articles">
   <div class="container">
-    <div class="reveal" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;">
-      <button style="padding:8px 20px;background:var(--color-brand);color:white;border-radius:100px;font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;border:none;cursor:pointer;">Tous</button>
-      <button style="padding:8px 20px;background:var(--color-blue-light);color:var(--color-brand);border-radius:100px;font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;border:1px solid rgba(27,58,92,.1);cursor:pointer;transition:all .25s;">SEO</button>
-      <button style="padding:8px 20px;background:var(--color-blue-light);color:var(--color-brand);border-radius:100px;font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;border:1px solid rgba(27,58,92,.1);cursor:pointer;transition:all .25s;">GEO</button>
-      <button style="padding:8px 20px;background:var(--color-blue-light);color:var(--color-brand);border-radius:100px;font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;border:1px solid rgba(27,58,92,.1);cursor:pointer;transition:all .25s;">SEA</button>
-      <button style="padding:8px 20px;background:var(--color-blue-light);color:var(--color-brand);border-radius:100px;font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;border:1px solid rgba(27,58,92,.1);cursor:pointer;transition:all .25s;">Analytics</button>
-      <button style="padding:8px 20px;background:var(--color-blue-light);color:var(--color-brand);border-radius:100px;font-family:var(--font-mono);font-size:.75rem;font-weight:600;letter-spacing:.06em;border:1px solid rgba(27,58,92,.1);cursor:pointer;transition:all .25s;">YMYL</button>
+    <div class="reveal blog-filters">
+      <button class="blog-filter-btn active">Tous</button>
+      <button class="blog-filter-btn">SEO</button>
+      <button class="blog-filter-btn">GEO</button>
+      <button class="blog-filter-btn">SEA</button>
+      <button class="blog-filter-btn">Analytics</button>
+      <button class="blog-filter-btn">YMYL</button>
     </div>
   </div>
 </section>
@@ -95,20 +93,20 @@
   <div class="container">
     <h2 id="featured-title" class="sr-only">Article à la une</h2>
 
-    <article class="reveal" style="background:var(--color-dark-bg);border-radius:var(--radius-xl);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-bottom:48px;">
-      <div class="blog-img-4" style="min-height:320px;display:flex;align-items:center;justify-content:center;padding:40px;">
-        <h2 style="color:white;font-size:clamp(1.2rem,2.5vw,1.8rem);text-align:center;line-height:1.3;text-shadow:0 2px 12px rgba(0,0,0,.4);">GEO : comment apparaître dans les réponses IA de Google, ChatGPT et Perplexity</h2>
+    <article class="reveal blog-featured">
+      <div class="blog-featured-visual blog-img-4">
+        <h2>GEO : comment apparaître dans les réponses IA de Google, ChatGPT et Perplexity</h2>
       </div>
-      <div style="padding:48px 44px;display:flex;flex-direction:column;justify-content:center;">
+      <div class="blog-featured-body">
         <span class="blog-tag" style="margin-bottom:16px;">GEO</span>
-        <h3 style="color:white;font-size:1.5rem;margin-bottom:16px;line-height:1.3;">GEO : comment apparaître dans les réponses IA de Google, ChatGPT et Perplexity</h3>
-        <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.7;margin-bottom:24px;">Les moteurs de réponse IA bouleversent la visibilité en ligne. Google AI Overviews, ChatGPT, Perplexity — comment structurer vos contenus pour être cité comme source fiable dans les réponses générées par l'intelligence artificielle ?</p>
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px;">
-          <span style="font-family:var(--font-mono);font-size:.75rem;color:rgba(255,255,255,.4);">15 janvier 2025</span>
-          <span style="width:1px;height:12px;background:rgba(255,255,255,.15);"></span>
-          <span style="font-family:var(--font-mono);font-size:.75rem;color:rgba(255,255,255,.4);">12 min de lecture</span>
+        <h3>GEO : comment apparaître dans les réponses IA de Google, ChatGPT et Perplexity</h3>
+        <p>Les moteurs de réponse IA bouleversent la visibilité en ligne. Google AI Overviews, ChatGPT, Perplexity : comment structurer vos contenus pour être cité comme source fiable dans les réponses générées par l'intelligence artificielle ?</p>
+        <div class="blog-featured-meta">
+          <span>15 janvier 2025</span>
+          <span class="blog-featured-meta-sep"></span>
+          <span>12 min de lecture</span>
         </div>
-        <a href="#" class="btn btn-gold btn-sm" style="align-self:flex-start;">
+        <a href="#" class="btn btn-white btn-sm" style="align-self:flex-start;">
           Lire l'article
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -116,7 +114,7 @@
     </article>
 
     <!-- GRILLE ARTICLES -->
-    <div class="grid-3 reveal-stagger" role="list">
+    <div class="grid-3 reveal" role="list">
 
       <!-- Article 2 -->
       <article class="blog-card" role="listitem">
@@ -254,14 +252,14 @@
     </div>
 
     <!-- NEWSLETTER -->
-    <div class="reveal" style="margin-top:60px;background:var(--color-blue-light);border-radius:var(--radius-xl);padding:48px;text-align:center;border:1px solid rgba(46,134,222,.1);">
-      <div style="max-width:500px;margin:0 auto;">
-        <span class="eyebrow" style="display:inline-block;font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:16px;padding:4px 14px;border:1px solid rgba(56,161,243,.3);border-radius:100px;">Newsletter</span>
-        <h3 style="margin-bottom:12px;">Recevez nos analyses SEO & GEO</h3>
-        <p style="color:var(--color-grey);margin-bottom:28px;font-size:.9rem;">1 email par mois — les insights SEO & GEO les plus pertinents pour les secteurs à enjeux. Pas de spam, désabonnement en 1 clic.</p>
-        <form style="display:flex;gap:12px;max-width:400px;margin:0 auto;" onsubmit="event.preventDefault();">
-          <input type="email" placeholder="votre@email.fr" aria-label="Votre adresse email" style="flex:1;padding:14px 18px;border:1.5px solid rgba(27,58,92,.15);border-radius:100px;font-family:var(--font-body);font-size:.9rem;outline:none;background:white;" required>
-          <button type="submit" class="btn btn-primary" style="border-radius:100px;padding:14px 24px;white-space:nowrap;">S'abonner</button>
+    <div class="reveal blog-newsletter">
+      <div class="blog-newsletter-inner">
+        <span class="hero-eyebrow">Newsletter</span>
+        <h3>Recevez nos analyses SEO & GEO</h3>
+        <p>1 email par mois : les insights SEO & GEO les plus pertinents pour les secteurs à enjeux. Pas de spam, désabonnement en 1 clic.</p>
+        <form class="blog-newsletter-form" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="votre@email.fr" aria-label="Votre adresse email" required>
+          <button type="submit" class="btn btn-primary">S'abonner</button>
         </form>
       </div>
     </div>
@@ -271,16 +269,12 @@
 
 <!-- CTA -->
 <section class="cta-band" aria-labelledby="cta-blog-title">
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="container" style="position:relative;z-index:1;">
+  <div class="container">
     <div class="reveal">
       <h2 id="cta-blog-title">Ces insights vous semblent pertinents<br>pour votre stratégie ?</h2>
       <p>Discutons de la façon dont nous pouvons les appliquer concrètement à votre site et à votre marché.</p>
       <div class="cta-buttons">
-        <a href="contact.html" class="btn btn-gold">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Parlons de votre projet
-        </a>
+        <a href="contact.html" class="btn btn-white">Parlons de votre projet</a>
       </div>
     </div>
   </div>
@@ -300,7 +294,7 @@
         </div>
       </div>
       <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="index.html">Accueil</a></li><li><a href="agence.html">L'agence</a></li><li><a href="expertises.html">Expertises</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h4>Expertises</h4><ul class="footer-links"><li><a href="expertises/seo.html">SEO</a></li><li><a href="expertises/geo.html">GEO</a></li><li><a href="expertises/sea.html">SEA & Google Ads</a></li><li><a href="expertises/analytics.html">Analytics & Data</a></li></ul><p style="margin-top:14px;font-size:.85em;line-height:1.5;"><a href="https://leadfit.io/" target="_blank" rel="noopener" style="color:var(--accent,#0066FF);">Leadfit</a> — Qualifiez vos leads B2B grâce à un scoring intelligent qui s'adapte à vos résultats réels.</p></div>
+      <div class="footer-col"><h4>Expertises</h4><ul class="footer-links"><li><a href="expertises/seo.html">SEO</a></li><li><a href="expertises/geo.html">GEO</a></li><li><a href="expertises/sea.html">SEA & Google Ads</a></li><li><a href="expertises/analytics.html">Analytics & Data</a></li></ul><p style="margin-top:14px;font-size:.85em;line-height:1.5;"><a href="https://leadfit.io/" target="_blank" rel="noopener" style="color:var(--color-blue);">Leadfit</a> — Qualifiez vos leads B2B grâce à un scoring intelligent qui s'adapte à vos résultats réels.</p></div>
       <div class="footer-col"><h4>Coordonnées</h4>
         <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>8 rue Christian Dewet, 75012 Paris</span></div>
         <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><a href="mailto:contact@netaudience.fr" style="color:rgba(255,255,255,.6);">contact@netaudience.fr</a></span></div>

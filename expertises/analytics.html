@@ -2,188 +2,227 @@
 <html lang="fr">
 <head>
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WTXNT2K');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WTXNT2K');</script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analytics & Data — GA4, Looker Studio, Tracking RGPD | Netaudience</title>
-  <meta name="description" content="Implémentation GA4, dashboards Looker Studio, tracking server-side RGPD-compliant et attribution multi-touch pour les secteurs à enjeux. Mesure de performance sans compromis.">
+  <title>Analytics et Data : GA4, tracking, dashboards | Netaudience</title>
+  <meta name="description" content="GA4 avancé, tracking server-side RGPD-compliant, dashboards Looker Studio et attribution multi-touch pour les secteurs à enjeux.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.netaudience.fr/expertises/analytics.html">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/animations.css"></head>
+  <link rel="stylesheet" href="../css/animations.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Analytics et Data",
+    "description": "GA4 avancé, tracking server-side RGPD-compliant, dashboards Looker Studio et attribution multi-touch pour les secteurs à enjeux.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Netaudience",
+      "url": "https://www.netaudience.fr"
+    },
+    "areaServed": "FR",
+    "url": "https://www.netaudience.fr/expertises/analytics.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment migrer vers GA4 correctement ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La migration vers GA4 nécessite un audit complet du tracking existant, la définition d'un nouveau plan de marquage adapté au modèle événementiel de GA4, et la configuration des conversions, audiences et rapports personnalisés. Nous réalisons la migration sans perte de données et formons vos équipes à l'utilisation du nouvel outil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Le tracking server-side est-il obligatoire pour la conformité RGPD ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le tracking server-side n'est pas une obligation légale en soi, mais il constitue la meilleure réponse technique aux exigences de la CNIL concernant les transferts de données hors UE. En faisant transiter les données par un serveur européen avant envoi à Google, vous gardez le contrôle sur les informations collectées et leur destination. C'est la solution recommandée pour les secteurs soumis à des exigences strictes de conformité."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que le server-side tracking et pourquoi l'utiliser ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le server-side tracking consiste à envoyer les données de mesure depuis votre serveur (au lieu du navigateur de l'utilisateur). Cela permet de contourner les bloqueurs publicitaires, de réduire l'impact sur les performances du site, de mieux contrôler les données transmises aux plateformes tierces et de se conformer aux recommandations de la CNIL. La collecte reste soumise au consentement de l'utilisateur."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que contiennent vos dashboards Looker Studio ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nos dashboards Looker Studio sont construits sur mesure autour de vos KPIs métier : trafic par canal, taux de conversion par étape du funnel, coût d'acquisition, ROAS, parcours utilisateur et attribution multi-touch. Ils se connectent à GA4, Google Ads, Search Console et votre CRM. Les données sont mises à jour automatiquement et accessibles à vos équipes sans compétence technique."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTXNT2K"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTXNT2K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
 <header class="site-header" role="banner">
   <div class="header-inner">
-    <a href="../index.html" class="logo"><img src="../img/logo-netaudience-icon-80.png" alt="" class="logo-img" width="36" height="36" style="border-radius:6px;"><span class="logo-text">net<span>audience</span></span></a>
+    <a href="../index.html" class="logo" aria-label="Netaudience, accueil">
+      <img src="../img/logo-netaudience-icon-80.png" alt="" class="logo-img" width="36" height="36" style="border-radius:6px;"><span class="logo-text">net<span>audience</span></span>
+    </a>
     <nav class="main-nav" role="navigation" aria-label="Navigation principale">
       <div class="nav-item"><a href="../index.html" class="nav-link">Accueil</a></div>
       <div class="nav-item"><a href="../agence.html" class="nav-link">L'agence</a></div>
       <div class="nav-item">
-        <a href="../expertises.html" class="nav-link active">Expertises <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+        <a href="../expertises.html" class="nav-link active" aria-haspopup="true">Expertises <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
         <div class="dropdown" role="menu">
-          <a href="../expertises/seo.html">SEO</a>
-          <a href="../expertises/geo.html">GEO</a>
-          <a href="../expertises/sea.html">SEA & Google Ads</a>
-          <a href="../expertises/analytics.html">Analytics & Data</a>
+          <a href="../expertises/seo.html" role="menuitem">SEO</a>
+          <a href="../expertises/geo.html" role="menuitem">GEO</a>
+          <a href="../expertises/sea.html" role="menuitem">SEA &amp; Google Ads</a>
+          <a href="../expertises/analytics.html" role="menuitem">Analytics &amp; Data</a>
         </div>
       </div>
       <div class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></div>
     </nav>
-    <a href="../contact.html" class="nav-cta">Audit gratuit</a>
+    <a href="../contact.html" class="nav-cta" aria-label="Demander un audit gratuit">Audit gratuit</a>
     <button class="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
-
 <nav class="mobile-nav" aria-label="Navigation mobile">
-  <a href="../index.html">Accueil</a><a href="../agence.html">L'agence</a><a href="../expertises.html">Expertises</a>
-  <a href="../expertises/seo.html" style="padding-left:28px;font-size:.875rem;">→ SEO</a>
-  <a href="../expertises/geo.html" style="padding-left:28px;font-size:.875rem;">→ GEO</a>
-  <a href="../expertises/sea.html" style="padding-left:28px;font-size:.875rem;">→ SEA & Google Ads</a>
-  <a href="../expertises/analytics.html" style="padding-left:28px;font-size:.875rem;">→ Analytics & Data</a>
+  <a href="../index.html">Accueil</a>
+  <a href="../agence.html">L'agence</a>
+  <a href="../expertises.html">Expertises</a>
+  <a href="../expertises/seo.html" style="padding-left:28px;font-size:.875rem;">SEO</a>
+  <a href="../expertises/geo.html" style="padding-left:28px;font-size:.875rem;">GEO</a>
+  <a href="../expertises/sea.html" style="padding-left:28px;font-size:.875rem;">SEA &amp; Google Ads</a>
+  <a href="../expertises/analytics.html" style="padding-left:28px;font-size:.875rem;">Analytics &amp; Data</a>
   <a href="../contact.html">Contact</a>
   <a href="../contact.html" class="mobile-nav-cta">Demander un audit gratuit</a>
 </nav>
 
 <main>
 
-<section class="page-hero" aria-labelledby="analytics-title">
-  <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
-  <div class="bg-grid" aria-hidden="true"></div>
+<!-- HERO -->
+<section class="hero hero--short" aria-labelledby="analytics-title">
   <div class="container">
     <nav class="breadcrumb" aria-label="Fil d'Ariane">
       <a href="../index.html">Accueil</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
       <a href="../expertises.html">Expertises</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-      <span>Analytics</span>
+      <span>Analytics &amp; Data</span>
     </nav>
-    <div class="hero-eyebrow">Expertise — Analytics</div>
-    <h1 id="analytics-title">Analytics & Data<br><span class="text-gold">pour les secteurs à enjeux</span></h1>
-    <p>Dans les secteurs réglementés, la mesure de performance ne peut pas se permettre d'être approximative. GA4 avancé, attribution multi-touch, tracking RGPD-compliant... Nous vous aidons à prendre de meilleures décisions grâce aux données.</p>
-    <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:10px;">
-      <span class="tag tag-gold">RGPD Compliant</span>
-      <span class="tag tag-blue">GA4 Avancé</span>
-      <span class="tag tag-blue">Reporting avancé</span>
-      <span class="tag tag-blue">Attribution Multi-Touch</span>
+    <span class="hero-eyebrow">Analytics et Data</span>
+    <h1 id="analytics-title">Mesurer pour décider, pas pour décorer</h1>
+    <p class="hero-subtitle">La mesure de performance dans les secteurs réglementés est complexifiée par des parcours de conversion longs, multi-device, et des exigences RGPD strictes. Nous implémentons un tracking fiable, conforme et exploitable pour guider chaque décision par la donnée.</p>
+  </div>
+</section>
+
+<!-- METHODE -->
+<section class="section" aria-labelledby="methode-analytics-title">
+  <div class="container">
+    <span class="section-eyebrow">Notre méthode</span>
+    <h2 id="methode-analytics-title" class="section-title">De la donnée brute à la décision éclairée</h2>
+    <p class="section-intro">Un dispositif de mesure complet, conforme RGPD, qui connecte vos sources de données et rend vos KPIs accessibles à toutes vos équipes.</p>
+    <div class="expertise-list">
+      <div class="expertise-item reveal">
+        <span class="expertise-num">01</span>
+        <div class="expertise-body">
+          <h3>Audit Analytics</h3>
+          <p>Revue complète de votre configuration GA4, de votre conteneur GTM et de votre plan de marquage. Identification des écarts entre les données collectées et les KPIs métier réellement nécessaires à vos décisions.</p>
+        </div>
+      </div>
+      <div class="expertise-item reveal">
+        <span class="expertise-num">02</span>
+        <div class="expertise-body">
+          <h3>Implémentation server-side</h3>
+          <p>Déploiement d'un tracking server-side conforme aux recommandations de la CNIL. Les données transitent par un serveur européen avant envoi aux plateformes tierces. Vous gardez le contrôle sur la collecte, le stockage et les transferts.</p>
+        </div>
+      </div>
+      <div class="expertise-item reveal">
+        <span class="expertise-num">03</span>
+        <div class="expertise-body">
+          <h3>Dashboards Looker Studio</h3>
+          <p>Conception de tableaux de bord sur mesure connectés à GA4, Google Ads, Search Console et votre CRM. Chaque dashboard est construit autour de vos KPIs métier et mis à jour automatiquement.</p>
+        </div>
+      </div>
+      <div class="expertise-item reveal">
+        <span class="expertise-num">04</span>
+        <div class="expertise-body">
+          <h3>Attribution multi-touch</h3>
+          <p>Modélisation des parcours de conversion longs et cross-device propres aux secteurs B2B et réglementés. Chaque point de contact est valorisé pour comprendre ce qui génère réellement vos leads et vos ventes.</p>
+        </div>
+      </div>
+      <div class="expertise-item reveal">
+        <span class="expertise-num">05</span>
+        <div class="expertise-body">
+          <h3>Formation et transfert</h3>
+          <p>Formation de vos équipes à l'exploitation des dashboards et à l'interprétation des données. L'objectif est votre autonomie : comprendre vos métriques, identifier les tendances et prendre des décisions sans dépendance externe.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ENJEUX -->
-<section class="section" aria-labelledby="enjeux-analytics-title">
+<!-- FAQ -->
+<section class="section section--alt" aria-labelledby="faq-analytics-title">
   <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Les défis de la mesure en secteurs réglementés</span>
-      <h2 id="enjeux-analytics-title">Pourquoi l'Analytics des secteurs à enjeux<br>est un problème à part</h2>
-      <p>Les secteurs réglementés cumulent trois défis majeurs de mesure que les outils standard ne résolvent pas nativement.</p>
-    </div>
-
-    <div class="grid-3 reveal-stagger">
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Parcours longs & multi-device</h3>
-        <p>Souscrire un service financier, choisir un professionnel de santé ou un cabinet d'avocats prend du temps, sur plusieurs appareils et points de contact. Les modèles d'attribution natifs de Google Ads ou de GA4 ne capturent pas fidèlement ces parcours.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <h3>RGPD & consentement restrictif</h3>
-        <p>Les utilisateurs des secteurs sensibles sont particulièrement vigilants sur la vie privée. Les taux de refus de consentement dépassent souvent 40%. Sans tracking server-side, vous perdez la moitié de vos données de conversion.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <h3>Conversions offline critiques</h3>
-        <p>La conversion réelle n'est pas toujours le clic : c'est le rendez-vous pris, le contrat signé, le compte ouvert. Ces données restent dans votre CRM, invisibles pour Google Ads et GA4.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRESTATIONS -->
-<section class="section section--light" aria-labelledby="prest-analytics-title">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Nos prestations Analytics</span>
-      <h2 id="prest-analytics-title">Ce que nous déployons<br>pour vous</h2>
-    </div>
-
-    <div class="service-list reveal-stagger">
-      <div class="service-item">
-        <div class="service-item-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-        </div>
-        <div>
-          <h4>Implémentation GA4 avancée</h4>
-          <p>Installation ou migration GA4 selon les meilleures pratiques : configuration des événements personnalisés pour vos KPIs métier, paramétrage des entonnoirs, audiences de remarketing et conversions pondérées adaptées à votre secteur.</p>
+    <h2 id="faq-analytics-title" class="section-title">Questions fréquentes</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-analytics-1">
+          Comment migrer vers GA4 correctement ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer" id="faq-analytics-1">
+          <div class="faq-answer-inner">
+            <p>La migration vers GA4 nécessite un audit complet du tracking existant, la définition d'un nouveau plan de marquage adapté au modèle événementiel de GA4, et la configuration des conversions, audiences et rapports personnalisés. Nous réalisons la migration sans perte de données et formons vos équipes à l'utilisation du nouvel outil.</p>
+          </div>
         </div>
       </div>
-
-      <div class="service-item">
-        <div class="service-item-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <div>
-          <h4>Dashboards Looker Studio sur mesure</h4>
-          <p>Conception de tableaux de bord exécutifs et opérationnels dans Looker Studio : vue consolidée SEO/SEA/CRM, métriques business en temps réel (CPL, CPA, ROAS, LTV), alertes automatiques sur les anomalies. Des dashboards que vos équipes lisent vraiment.</p>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-        </div>
-        <div>
-          <h4>Tracking server-side RGPD & CNIL compliant</h4>
-          <p>Déploiement d'une infrastructure de tracking côté serveur (Server-Side GTM) qui contourne les bloqueurs de publicité et les refus de cookies, tout en restant parfaitement conforme au RGPD et aux recommandations de la CNIL. Récupération de 30 à 50% de données supplémentaires en moyenne.</p>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-analytics-2">
+          Le tracking server-side est-il obligatoire pour la conformité RGPD ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer" id="faq-analytics-2">
+          <div class="faq-answer-inner">
+            <p>Le tracking server-side n'est pas une obligation légale en soi, mais il constitue la meilleure réponse technique aux exigences de la CNIL concernant les transferts de données hors UE. En faisant transiter les données par un serveur européen avant envoi à Google, vous gardez le contrôle sur les informations collectées et leur destination. C'est la solution recommandée pour les secteurs soumis à des exigences strictes de conformité.</p>
+          </div>
         </div>
       </div>
-
-      <div class="service-item">
-        <div class="service-item-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="m9 15 2 2 4-4"/></svg>
-        </div>
-        <div>
-          <h4>Attribution multi-touch pour parcours complexes</h4>
-          <p>Modélisation de l'attribution sur des parcours longs (30 à 90 jours, 5 à 15 points de contact) : identification des canaux qui initient, qui accompagnent et qui convertissent. Recalibration des investissements SEO et SEA en conséquence.</p>
-        </div>
-      </div>
-
-      <div class="service-item">
-        <div class="service-item-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        </div>
-        <div>
-          <h4>Reporting mensuel et analyse des tendances</h4>
-          <p>Un rapport mensuel qui va au-delà des chiffres : analyse des tendances, identification des anomalies, recommandations concrètes pour le mois suivant. Présenté lors d'un point mensuel avec votre interlocuteur senior dédié.</p>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-analytics-3">
+          Qu'est-ce que le server-side tracking et pourquoi l'utiliser ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer" id="faq-analytics-3">
+          <div class="faq-answer-inner">
+            <p>Le server-side tracking consiste à envoyer les données de mesure depuis votre serveur (au lieu du navigateur de l'utilisateur). Cela permet de contourner les bloqueurs publicitaires, de réduire l'impact sur les performances du site, de mieux contrôler les données transmises aux plateformes tierces et de se conformer aux recommandations de la CNIL. La collecte reste soumise au consentement de l'utilisateur.</p>
+          </div>
         </div>
       </div>
-
-      <div class="service-item">
-        <div class="service-item-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div>
-          <h4>Connexion CRM et suivi du pipeline commercial</h4>
-          <p>Intégration de vos données CRM (Salesforce, HubSpot, Pipedrive, outils propriétaires) dans votre écosystème Analytics pour réconcilier les données marketing et commerciales. Suivi du pipeline de bout en bout, de la première visite à la signature.</p>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-analytics-4">
+          Que contiennent vos dashboards Looker Studio ?
+          <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="faq-answer" id="faq-analytics-4">
+          <div class="faq-answer-inner">
+            <p>Nos dashboards Looker Studio sont construits sur mesure autour de vos KPIs métier : trafic par canal, taux de conversion par étape du funnel, coût d'acquisition, ROAS, parcours utilisateur et attribution multi-touch. Ils se connectent à GA4, Google Ads, Search Console et votre CRM. Les données sont mises à jour automatiquement et accessibles à vos équipes sans compétence technique.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -192,18 +231,11 @@
 
 <!-- CTA -->
 <section class="cta-band" aria-labelledby="cta-analytics-title">
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="container" style="position:relative;z-index:1;">
+  <div class="container">
     <div class="reveal">
-      <h2 id="cta-analytics-title">Vos données vous donnent-elles<br>une vraie visibilité ?</h2>
-      <p>Un audit Analytics révèle en général des écarts de 20 à 40% entre les données déclarées et la réalité. Découvrez ce que vous ne voyez pas.</p>
-      <div class="cta-buttons">
-        <a href="../contact.html" class="btn btn-gold">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          Demander un audit Analytics
-        </a>
-        <a href="../expertises/sea.html" class="btn btn-outline">Voir SEA & Google Ads</a>
-      </div>
+      <h2 id="cta-analytics-title">Reprenez le contrôle de vos données</h2>
+      <p>Notre audit Analytics évalue votre configuration GA4, identifie les données manquantes et propose un plan d'action pour un tracking fiable et conforme.</p>
+      <a href="../contact.html" class="btn btn-white">Demander un audit Analytics gratuit</a>
     </div>
   </div>
 </section>
@@ -214,24 +246,29 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="../index.html" class="logo"><img src="../img/logo-netaudience-icon-80.png" alt="" class="logo-img" width="36" height="36" style="border-radius:6px;"><span class="logo-text">net<span>audience</span></span></a>
-        <p style="margin-top:16px;">L'agence SEO & GEO spécialisée dans les secteurs à enjeux.</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/netaudience" class="footer-social-link" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="https://twitter.com/netaudience" class="footer-social-link" target="_blank" rel="noopener" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="../index.html" class="logo" aria-label="Netaudience"><img src="../img/logo-netaudience-icon-80.png" alt="" class="logo-img" width="36" height="36" style="border-radius:6px;"><span class="logo-text">net<span>audience</span></span></a>
+        <p style="margin-top:16px;">L'agence SEO et GEO spécialisée dans les secteurs à enjeux. Visibilité organique et IA pour les marques qui comptent.</p>
+        <div class="footer-social" aria-label="Réseaux sociaux">
+          <a href="https://www.linkedin.com/company/netaudience" class="footer-social-link" target="_blank" rel="noopener" aria-label="LinkedIn Netaudience"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://twitter.com/netaudience" class="footer-social-link" target="_blank" rel="noopener" aria-label="Twitter/X Netaudience"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
         </div>
       </div>
       <div class="footer-col"><h4>Navigation</h4><ul class="footer-links"><li><a href="../index.html">Accueil</a></li><li><a href="../agence.html">L'agence</a></li><li><a href="../expertises.html">Expertises</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h4>Expertises</h4><ul class="footer-links"><li><a href="../expertises/seo.html">SEO</a></li><li><a href="../expertises/geo.html">GEO</a></li><li><a href="../expertises/sea.html">SEA & Google Ads</a></li><li><a href="../expertises/analytics.html">Analytics & Data</a></li></ul><p style="margin-top:14px;font-size:.85em;line-height:1.5;"><a href="https://leadfit.io/" target="_blank" rel="noopener" style="color:var(--accent,#0066FF);">Leadfit</a> — Qualifiez vos leads B2B grâce à un scoring intelligent qui s'adapte à vos résultats réels.</p></div>
+      <div class="footer-col"><h4>Nos expertises</h4><ul class="footer-links"><li><a href="../expertises/seo.html">SEO</a></li><li><a href="../expertises/geo.html">GEO</a></li><li><a href="../expertises/sea.html">SEA &amp; Google Ads</a></li><li><a href="../expertises/analytics.html">Analytics &amp; Data</a></li></ul><p style="margin-top:14px;font-size:.85em;line-height:1.5;"><a href="https://leadfit.io/" target="_blank" rel="noopener" style="color:var(--color-blue);">Leadfit</a> : qualifiez vos leads B2B grâce à un scoring intelligent qui s'adapte à vos résultats réels.</p></div>
       <div class="footer-col"><h4>Coordonnées</h4>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>8 rue Christian Dewet, 75012 Paris</span></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>8 rue Christian Dewet<br>75012 Paris</span></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span><a href="tel:+33685029780" style="color:rgba(255,255,255,.6);">+33 6 85 02 97 80</a></span></div>
         <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span><a href="mailto:contact@netaudience.fr" style="color:rgba(255,255,255,.6);">contact@netaudience.fr</a></span></div>
       </div>
     </div>
   </div>
-  <div class="container"><div class="footer-bottom"><p>© <span class="current-year"></span> Netaudience — Agence SEO & GEO</p><div class="footer-bottom-links"><a href="../mentions-legales.html">Mentions légales</a><a href="../politique-confidentialite.html">Politique de confidentialité</a></div></div></div>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; <span class="current-year"></span> Netaudience</p>
+      <div class="footer-bottom-links"><a href="../mentions-legales.html">Mentions légales</a><a href="../politique-confidentialite.html">Politique de confidentialité</a><a href="../sitemap.xml">Sitemap</a></div>
+    </div>
+  </div>
 </footer>
-
 <script src="../js/main.js"></script>
 </body>
 </html>
