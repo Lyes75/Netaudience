@@ -383,7 +383,7 @@ p { margin: 0 0 1em; }
 .founder-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; margin-top: 8px; }
 .split-visual { display: flex; justify-content: center; }
 .founder-photo {
-  width: 280px;
+  width: 100px;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
