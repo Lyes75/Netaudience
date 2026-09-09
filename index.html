@@ -473,14 +473,70 @@
 </section>
 
 <!-- ============================================================
-     CTA BAND
+     FORMULAIRE DE CONTACT
      ============================================================ -->
-<section class="cta-band" aria-labelledby="cta-title">
+<section class="section section--alt" aria-labelledby="contact-title">
   <div class="container">
-    <div class="reveal">
-      <h2 id="cta-title">Prêt à accélérer votre visibilité ?</h2>
-      <p>Audit SEO et GEO gratuit : nous analysons votre visibilité sur Google et dans les moteurs de réponse IA.</p>
-      <a href="contact.html" class="btn btn-white">Parlons de votre projet</a>
+    <div class="split-layout">
+      <div class="split-text reveal">
+        <span class="section-eyebrow">Contact</span>
+        <h2 id="contact-title" class="section-title">Demandez votre audit gratuit</h2>
+        <p class="section-intro">Premier échange gratuit et sans engagement. Nous analysons votre situation et vous proposons une approche concrète sous 24&nbsp;h ouvrées.</p>
+      </div>
+      <div class="split-content reveal">
+        <div class="contact-form">
+          <form action="#" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Jean" required autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" placeholder="Dupont" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email professionnel *</label>
+                <input type="email" id="email" name="email" placeholder="jean@entreprise.fr" required autocomplete="email">
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" autocomplete="tel">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="societe">Société *</label>
+              <input type="text" id="societe" name="societe" placeholder="Nom de votre entreprise" required autocomplete="organization">
+            </div>
+
+            <div class="form-group">
+              <label for="secteur">Secteur *</label>
+              <select id="secteur" name="secteur" required>
+                <option value="" disabled selected>Sélectionnez votre secteur</option>
+                <option value="finance">Finance / Fintech</option>
+                <option value="sante">Santé / Bien-être</option>
+                <option value="juridique">Juridique / Notariat</option>
+                <option value="immobilier">Immobilier / Construction</option>
+                <option value="assurance">Assurance / Prévoyance</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre projet, vos enjeux actuels et les objectifs que vous visez." required></textarea>
+            </div>
+
+            <p><small>Vos données sont utilisées uniquement pour répondre à votre demande. Aucune revente, aucun partage. Traitement conforme au RGPD.</small></p>
+
+            <button type="submit" class="btn btn-primary">Envoyer votre demande</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>
