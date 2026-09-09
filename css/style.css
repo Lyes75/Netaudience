@@ -35,7 +35,7 @@
 
   --container-max:  1120px;
   --container-wide: 1320px;
-  --section-py:     clamp(80px, 10vw, 140px);
+  --section-py:     clamp(64px, 8vw, 100px);
 }
 
 /* ---- Reset & Base ---- */
@@ -124,7 +124,7 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
 }
 
 .section-intro {
-  max-width: 600px;
+  max-width: 680px;
   color: var(--color-grey);
   font-size: clamp(1rem, 1.6vw, 1.1rem);
   line-height: 1.7;
@@ -546,13 +546,13 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
    HERO (light, editorial)
    ============================================================ */
 .hero {
-  padding: clamp(140px, 18vw, 200px) 0 clamp(80px, 10vw, 120px);
+  padding: clamp(100px, 12vw, 140px) 0 clamp(60px, 8vw, 80px);
   background: var(--color-bg);
   position: relative;
 }
 
 .hero-content {
-  max-width: 720px;
+  max-width: 860px;
 }
 
 .hero-eyebrow {
@@ -563,7 +563,7 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-blue);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .hero h1 {
@@ -575,8 +575,8 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
 .hero-subtitle {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   color: var(--color-grey);
-  max-width: 560px;
-  margin-bottom: 40px;
+  max-width: 640px;
+  margin-bottom: 32px;
   line-height: 1.7;
 }
 
@@ -585,7 +585,7 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .hero-trust {
@@ -694,7 +694,7 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
   color: var(--color-grey);
   font-size: 0.92rem;
   line-height: 1.65;
-  max-width: 520px;
+  max-width: 640px;
 }
 
 .expertise-arrow {
@@ -829,7 +829,7 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
    FAQ
    ============================================================ */
 .faq-list {
-  max-width: 760px;
+  max-width: 860px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -894,7 +894,7 @@ h4 { font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 600; }
    CTA BAND (only dark section)
    ============================================================ */
 .cta-band {
-  padding: var(--section-py) 0;
+  padding: clamp(56px, 7vw, 80px) 0;
   background: var(--color-dark-bg);
   position: relative;
   overflow: hidden;
