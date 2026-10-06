@@ -799,44 +799,51 @@ p { margin: 0 0 1em; }
    LOT 2 — Bandeau logos clients
    ============================================================ */
 .logo-band {
-  padding: 48px 0;
+  padding: 64px 0;
+  background: var(--paper-alt);
+  border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
 .logo-band-title {
   text-align: center;
   font-family: var(--sans);
-  font-size: .85rem;
-  font-weight: 500;
-  color: var(--ink-faint);
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
   text-transform: uppercase;
-  letter-spacing: .08em;
-  margin-bottom: 32px;
+  letter-spacing: .1em;
+  margin-bottom: 40px;
 }
 .logo-band-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: 40px 48px;
+  gap: 36px;
 }
 .logo-band-item {
   display: block;
-  height: 32px;
+  height: 36px;
   width: auto;
-  filter: grayscale(1) opacity(.45);
-  transition: filter .25s ease;
+  filter: grayscale(1) opacity(.6);
+  transition: filter .3s ease;
 }
 .logo-band-item:hover {
   filter: grayscale(0) opacity(1);
 }
+@media (max-width: 1024px) {
+  .logo-band-row { gap: 24px; }
+  .logo-band-item { height: 30px; }
+}
 @media (max-width: 820px) {
-  .logo-band-row { gap: 28px 32px; }
-  .logo-band-item { height: 26px; }
+  .logo-band { padding: 48px 0; overflow-x: auto; }
+  .logo-band-row { flex-wrap: nowrap; justify-content: flex-start; padding: 0 20px; gap: 28px; }
+  .logo-band-item { height: 28px; flex-shrink: 0; }
 }
 @media (max-width: 560px) {
-  .logo-band { padding: 36px 0; overflow-x: auto; }
-  .logo-band-row { flex-wrap: nowrap; justify-content: flex-start; padding: 0 20px; gap: 24px; }
-  .logo-band-item { height: 24px; flex-shrink: 0; }
+  .logo-band { padding: 40px 0; }
+  .logo-band-row { gap: 20px; }
+  .logo-band-item { height: 24px; }
 }
 
 /* ============================================================
