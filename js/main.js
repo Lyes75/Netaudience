@@ -1,7 +1,7 @@
 /* ============================================================
    NETAUDIENCE — main.js
-   Hamburger, reveal au scroll, compteurs KPI, accordéon FAQ, année.
-   Les valeurs KPI finales sont dans le HTML : sans JS, rien ne casse.
+   Hamburger, reveal au scroll, compteurs KPI, accordéon FAQ, année,
+   formulaires contact et analyse IA.
    ============================================================ */
 
 document.documentElement.classList.add('js');
@@ -42,10 +42,7 @@ document.documentElement.classList.add('js');
   items.forEach(function (el) { io.observe(el); });
 })();
 
-/* ---------- Compteurs KPI ----------
-   Le HTML contient déjà la valeur finale (fallback crawlers / no-JS).
-   Au premier affichage, on anime de 0 vers data-target puis on
-   restitue exactement le texte d'origine. */
+/* ---------- Compteurs KPI ---------- */
 (function () {
   var numbers = document.querySelectorAll('.kpi-number[data-target]');
   if (!numbers.length) return;
@@ -108,7 +105,10 @@ document.documentElement.classList.add('js');
   if (el) el.textContent = new Date().getFullYear();
 })();
 
-/* ---------- Formulaire contact (n8n webhook) ---------- */
+/* ---------- Endpoint unique (webhook n8n) ---------- */
+var FORM_ENDPOINT = 'https://netaudience.app.n8n.cloud/webhook/netaudience-lead';
+
+/* ---------- Formulaire contact ---------- */
 (function () {
   var form = document.querySelector('.contact-form form');
   if (!form) return;
@@ -120,10 +120,10 @@ document.documentElement.classList.add('js');
     btn.disabled = true;
     btn.textContent = 'Envoi en cours…';
 
-    var data = {};
+    var data = { form_name: 'contact' };
     new FormData(form).forEach(function (v, k) { data[k] = v; });
 
-    fetch('https://netaudience.app.n8n.cloud/webhook/netaudience-lead', {
+    fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -131,7 +131,7 @@ document.documentElement.classList.add('js');
     .then(function (r) {
       if (!r.ok) throw new Error(r.status);
       form.reset();
-      showStatus(form, 'success', 'Message envoyé. Nous vous recontactons sous 24 h.');
+      showStatus(form, 'success', 'Message envoyé. Nous vous recontactons sous 24 h.');
     })
     .catch(function () {
       showStatus(form, 'error', 'Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.');
@@ -152,4 +152,85 @@ document.documentElement.classList.add('js');
     el.className = 'form-status form-status--' + type;
     el.textContent = msg;
   }
+})();
+
+/* ---------- Formulaire analyse IA ---------- */
+(function () {
+  var form = document.querySelector('.geo-tool-form--analyse');
+  if (!form) return;
+
+  var siteInput = form.querySelector('input[name="site"]');
+  var emailInput = form.querySelector('input[name="email"]');
+  var confirmation = form.parentElement.querySelector('.geo-tool-confirmation');
+
+  function clearError(input) {
+    input.classList.remove('field-error');
+    var msg = input.parentElement.querySelector('.field-error-msg');
+    if (msg) msg.remove();
+  }
+
+  function setError(input, text) {
+    input.classList.add('field-error');
+    var existing = input.parentElement.querySelector('.field-error-msg');
+    if (existing) { existing.textContent = text; return; }
+    var span = document.createElement('span');
+    span.className = 'field-error-msg';
+    span.textContent = text;
+    input.parentElement.appendChild(span);
+  }
+
+  siteInput.addEventListener('input', function () { clearError(siteInput); });
+  emailInput.addEventListener('input', function () { clearError(emailInput); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (form.querySelector('input[name="_gotcha"]').value) return;
+
+    var valid = true;
+    clearError(siteInput);
+    clearError(emailInput);
+
+    var site = siteInput.value.trim();
+    if (!site) {
+      setError(siteInput, 'Veuillez indiquer votre site web.');
+      valid = false;
+    }
+
+    var email = emailInput.value.trim();
+    if (!email) {
+      setError(emailInput, 'Veuillez indiquer votre email.');
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError(emailInput, 'Veuillez saisir un email valide.');
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    if (!/^https?:\/\//i.test(site)) site = 'https://' + site;
+
+    var btn = form.querySelector('button[type="submit"]');
+    var old = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours…';
+
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ form_name: 'analyse_ia', site: site, email: email })
+    })
+    .then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      form.hidden = true;
+      confirmation.hidden = false;
+    })
+    .catch(function () {
+      setError(emailInput, 'Une erreur est survenue. Veuillez réessayer.');
+    })
+    .finally(function () {
+      btn.disabled = false;
+      btn.textContent = old;
+    });
+  });
 })();
