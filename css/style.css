@@ -1111,6 +1111,26 @@ p { margin: 0 0 1em; }
 }
 .geo-method-example p:last-of-type { margin-bottom: 20px; }
 .geo-method-example strong { color: var(--ink); }
+.geo-method-takeaway {
+  border-left: 4px solid var(--turquoise);
+  background: rgba(61, 232, 208, 0.07);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 24px;
+  margin-top: 20px;
+}
+.geo-method-takeaway-label {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.geo-method-takeaway p {
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
 .geo-method-captures {
   display: grid;
   grid-template-columns: 1fr 1fr;

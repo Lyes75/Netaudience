@@ -147,8 +147,8 @@ document.documentElement.classList.add('js');
   });
 })();
 
-/* ---------- Endpoint unique (webhook n8n) ---------- */
-var FORM_ENDPOINT = 'https://netaudience.app.n8n.cloud/webhook/netaudience-lead';
+/* ---------- Endpoint unique (Formspree) ---------- */
+var FORM_ENDPOINT = 'https://formspree.io/f/mkoqlddd';
 
 /* ---------- Formulaire contact ---------- */
 (function () {
