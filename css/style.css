@@ -1111,6 +1111,20 @@ p { margin: 0 0 1em; }
 }
 .geo-method-example p:last-of-type { margin-bottom: 20px; }
 .geo-method-example strong { color: var(--ink); }
+.geo-method-captures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.geo-method-capture-fig {
+  margin: 0;
+}
+.geo-method-capture-fig figcaption {
+  font-size: .82rem;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-top: 8px;
+}
 .geo-method-capture {
   display: block;
   border-radius: var(--radius);
@@ -1134,6 +1148,7 @@ p { margin: 0 0 1em; }
 }
 @media (max-width: 560px) {
   .geo-method-example { padding: 24px; }
+  .geo-method-captures { grid-template-columns: 1fr; }
   .geo-method-step { gap: 14px; }
   .geo-method-num { width: 34px; height: 34px; font-size: 1rem; }
 }

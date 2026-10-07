@@ -105,6 +105,48 @@ document.documentElement.classList.add('js');
   if (el) el.textContent = new Date().getFullYear();
 })();
 
+/* ---------- Lightbox ---------- */
+(function () {
+  var triggers = document.querySelectorAll('[data-lightbox]');
+  if (!triggers.length) return;
+
+  var overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.hidden = true;
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-label', 'Image agrandie');
+
+  var closeBtn = document.createElement('button');
+  closeBtn.className = 'lightbox-close';
+  closeBtn.setAttribute('aria-label', 'Fermer');
+  closeBtn.textContent = '×';
+
+  var img = document.createElement('img');
+  img.className = 'lightbox-img';
+
+  overlay.appendChild(closeBtn);
+  overlay.appendChild(img);
+  document.body.appendChild(overlay);
+
+  function close() { overlay.hidden = true; }
+  overlay.addEventListener('click', function (e) {
+    if (e.target !== img) close();
+  });
+  closeBtn.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !overlay.hidden) close();
+  });
+
+  triggers.forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      img.src = a.href;
+      img.alt = (a.querySelector('img') || {}).alt || '';
+      overlay.hidden = false;
+    });
+  });
+})();
+
 /* ---------- Endpoint unique (webhook n8n) ---------- */
 var FORM_ENDPOINT = 'https://netaudience.app.n8n.cloud/webhook/netaudience-lead';
 
