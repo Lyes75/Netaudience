@@ -148,7 +148,7 @@ document.documentElement.classList.add('js');
 })();
 
 /* ---------- Endpoint unique (Formspree) ---------- */
-var FORM_ENDPOINT = 'https://formspree.io/f/mkoqlddd';
+var FORM_ENDPOINT = 'https://formspree.io/f/mykbolzl';
 
 /* ---------- Formulaire contact ---------- */
 (function () {
