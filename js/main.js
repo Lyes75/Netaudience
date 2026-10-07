@@ -167,7 +167,7 @@ var FORM_ENDPOINT = 'https://formspree.io/f/mkoqlddd';
 
     fetch(FORM_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
     })
     .then(function (r) {
@@ -259,7 +259,7 @@ var FORM_ENDPOINT = 'https://formspree.io/f/mkoqlddd';
 
     fetch(FORM_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ form_name: 'analyse_ia', site: site, email: email })
     })
     .then(function (r) {
