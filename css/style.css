@@ -422,6 +422,7 @@ p { margin: 0 0 1em; }
 /* ============================================================
    FONDATEUR
    ============================================================ */
+.founder-subtitle { font-size: .95rem; color: var(--ink-soft); margin-bottom: 16px; }
 .founder-bio { font-size: 1.08rem; line-height: 1.7; color: var(--ink-soft); }
 .founder-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; margin-top: 8px; }
 .split-visual { display: flex; justify-content: center; }
@@ -1039,6 +1040,146 @@ p { margin: 0 0 1em; }
 }
 @media (max-width: 560px) {
   .case-cards { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   RÉPONSES PERSONNALISÉES
+   ============================================================ */
+.ia-context-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  padding: 40px 32px;
+  margin-bottom: 48px;
+  text-align: center;
+}
+.ia-context-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--rule);
+  border-radius: 24px;
+  padding: 10px 24px;
+  font-size: .95rem;
+  color: var(--ink-soft);
+  background: var(--paper-alt);
+}
+.ia-context-search svg { color: var(--ink-soft); flex-shrink: 0; }
+.ia-context-connector {
+  width: 2px;
+  height: 28px;
+  background: var(--rule);
+  margin: 0 auto;
+}
+.ia-context-connector--dotted {
+  background: none;
+  border-left: 2px dashed var(--rule);
+  width: 0;
+}
+.ia-context-conversation {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  background: var(--paper-alt);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+}
+.ia-context-engines {
+  display: block;
+  font-size: .75rem;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.ia-context-prompt-wrap { position: relative; overflow: hidden; }
+.ia-context-prompt {
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0;
+}
+.ia-context-prompt-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 100%;
+  background: var(--paper-alt);
+  pointer-events: none;
+}
+.ia-context-card.is-visible .ia-context-prompt-wrap::after {
+  animation: typing-reveal 2.5s steps(50) forwards;
+}
+@keyframes typing-reveal { to { width: 0; } }
+
+.ia-context-tags {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+}
+.ia-context-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .7rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+  padding: 6px 8px;
+  background: var(--paper-alt);
+  border-radius: 4px;
+  text-align: center;
+  --final-opacity: 1;
+  opacity: 0;
+}
+.ia-context-tag--r2 { --final-opacity: 0.8; }
+.ia-context-tag--r3 { --final-opacity: 0.55; }
+.ia-context-tag--r4 { --final-opacity: 0.3; }
+.ia-context-tag--highlight {
+  --final-opacity: 1;
+  color: var(--turquoise);
+  border: 1px solid var(--turquoise);
+  background: rgba(61, 232, 208, 0.08);
+}
+.ia-context-card.is-visible .ia-context-tag {
+  animation: tag-fade 0.6s ease forwards;
+  animation-delay: 2.6s;
+}
+@keyframes tag-fade { to { opacity: var(--final-opacity); } }
+
+.ia-context-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.ia-context-col h3 {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.ia-context-col p {
+  font-size: .95rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ia-context-prompt-wrap::after { display: none; }
+  .ia-context-tag { opacity: var(--final-opacity); animation: none !important; }
+}
+@media (max-width: 1024px) {
+  .ia-context-tags { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .ia-context-card { padding: 24px 16px; }
+  .ia-context-conversation { padding: 12px 14px; }
+  .ia-context-tag { font-size: .6rem; padding: 5px 4px; }
+  .ia-context-tag--r3,
+  .ia-context-tag--r4 { display: none; }
+  .ia-context-cols { grid-template-columns: 1fr; }
 }
 
 
